@@ -36,7 +36,7 @@ def get_account_key(account_config: dict) -> str:
     "astrbot_plugin_bili_at_notifier",
     "timetetng",
     "定时检查多个 Bilibili 账号的 @ 消息，并将相关视频推送到指定群聊。让群友陪你享受那个喜欢 @ 拉屎给你的朋友吧",
-    "1.1.0", # 版本号提升
+    "1.1.0",
     "https://github.com/your_username/astrbot_plugin_bili_at_notifier"
 )
 class BiliAtNotifierPlugin(Star):
