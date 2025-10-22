@@ -80,15 +80,15 @@
         "hint": "推送多条 @ 消息或多个账号消息时，每条消息之间的发送延迟。"
     },
     "nap_server_address": {
-        "description": "NAP cat 服务地址 (视频解析用)",
+        "description": "Napcat 服务地址 (视频解析用)",
         "type": "string",
         "default": "localhost",
         "hint": "若视频解析插件与 AstrBot 在同一服务器，请填写 localhost。"
     },
     "nap_server_port": {
-        "description": "NAP cat 接收文件端口 (视频解析用)",
+        "description": "Napcat 接收文件端口 (视频解析用)",
         "type": "int",
         "default": 3658,
-         "hint": "如果 NAP 服务在同一服务器，此项通常无需修改。"
+         "hint": "如果 Napcat 服务在同一服务器，此项通常无需修改。"
     }
 }

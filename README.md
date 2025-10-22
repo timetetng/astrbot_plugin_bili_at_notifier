@@ -10,7 +10,6 @@ Astrbot 插件——定时检查多个 Bilibili 账号的 @ 消息，并将相�
 * **定时轮询**：自动定时检查新消息。
 * **视频推送**：自动解析 @ 消息中的 B 站视频，并将其作为视频或文件推送到指定群聊。
 * **文本通知**：在推送视频前，会先发送一条包含 @ 者和评论内容的文本通知。
-* **远程文件发送**：支持通过 NAP (Neko Atsume Parser) 服务将视频文件发送到远程服务器，再由机器人推送，减少 Bot 所在服务器的带宽压力。
 
 ## ⚙️ 配置说明
 
@@ -52,8 +51,8 @@ Astrbot 插件——定时检查多个 Bilibili 账号的 @ 消息，并将相�
 | `bili_use_login` | bool | 是否使用登录状态下载 B 站视频。启用后将**尝试自动扫码登录**（在 Bot 后台）以下载高清视频。建议**禁用**以避免频繁登录。 | `false` |
 | `max_video_size` | int | 最大视频大小（MB）。超过此大小的视频将尝试以文件形式发送。 | `100` |
 | `send_delay` | float | 推送间隔（秒）。推送多条消息时，每条消息之间的发送延迟。 | `1.0` |
-| `nap_server_address` | string | NAP cat 服务地址 (视频解析用)。若视频解析插件与 AstrBot 在同一服务器，请填写 `localhost`。 | `localhost` |
-| `nap_server_port` | int | NAP cat 接收文件端口 (视频解析用)。如果 NAP 服务在同一服务器，此项通常无需修改。 | `3658` |
+| `nap_server_address` | string | Napcat 服务地址 (视频解析用)。若视频解析插件与 AstrBot 在同一服务器，请填写 `localhost`。 | `localhost` |
+| `nap_server_port` | int | Napcat 接收文件端口 (视频解析用)。如果 Napcat 服务在同一服务器，此项通常无需修改。 | `3658` |
 
 ## ⚠️ 依赖项
 
