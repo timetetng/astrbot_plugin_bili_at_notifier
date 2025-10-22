@@ -54,6 +54,15 @@ Astrbot 插件——定时检查多个 Bilibili 账号的 @ 消息，并将相�
 | `nap_server_address` | string | Napcat 服务地址 (视频解析用)。若视频解析插件与 AstrBot 在同一服务器，请填写 `localhost`。 | `localhost` |
 | `nap_server_port` | int | Napcat 接收文件端口 (视频解析用)。如果 Napcat 服务在同一服务器，此项通常无需修改。 | `3658` |
 
+## 😊 致谢
+
+### 参考或直接引用以下项目:
+
+* **AstrBot 视频解析插件**: https://github.com/miaoxutao123/astrbot_plugin_videos_analysis
+
+* **astrbot_plugin_bilibili_adapter**: https://github.com/Hina-Chat/astrbot_plugin_bilibili_adapter
+
+
 ## ⚠️ 依赖项
 
 * **FFmpeg**: 视频解析和下载功能（由 `bili_get.py` 提供）依赖 `ffmpeg` 进行音视频合成。请确保您的服务器上已安装 `ffmpeg` 并将其添加到了系统环境变量 (PATH) 中。
