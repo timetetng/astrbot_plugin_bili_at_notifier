@@ -157,7 +157,6 @@ class BiliAtNotifierPlugin(Star):
                     logger.warning(f"账号 '{account_label}' (Key: {account_key}) 的客户端实例丢失，跳过本次检查。")
                     continue
 
-                logger.info(f"开始检查账号: '{account_label}' (Key: {account_key})")
                 last_id = self.last_at_ids.get(account_key, 0)
                 is_first = self.is_first_run.get(account_key, True)
                 
@@ -224,7 +223,6 @@ class BiliAtNotifierPlugin(Star):
                         logger.info(f"账号 '{account_label}': 推送完成，更新 last_at_id 为 {self.last_at_ids[account_key]}")
                     
                     elif not is_first:
-                         logger.info(f"账号 '{account_label}': 没有需要推送的新消息。")
                          if current_max_id_this_poll > last_id:
                              logger.info(f"账号 '{account_label}': 检查到本轮最大ID ({current_max_id_this_poll}) 大于旧ID ({last_id})，但无消息推送（可能全部被过滤）。更新 last_at_id。")
                              self.last_at_ids[account_key] = current_max_id_this_poll
@@ -266,8 +264,7 @@ class BiliAtNotifierPlugin(Star):
 
                 # 1. 构造并发送文本通知消息 (加入账号标签)
                 notification_text = f"📢 账号「{account_label}」收到一坨屎！\n" \
-                                    f"👤 谁拉的: {sender_name}\n" \
-                                    f"💬 内容: \"{source_content}\""
+                                    f"👤 谁拉的: {sender_name}"
                 notification_chain = MessageChain([Plain(notification_text)])
 
                 for target_umo in self.target_umos:
