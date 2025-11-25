@@ -1,7 +1,8 @@
 import asyncio
 import json
-from typing import Optional, Tuple
+
 import aiohttp
+
 from astrbot.api import logger
 
 API_BASE_URL = "https://api.bilibili.com"
@@ -30,7 +31,7 @@ class BiliApiClient:
             "Origin": "https://message.bilibili.com", # 增加 Origin
         }
         self._timeout = aiohttp.ClientTimeout(total=timeout)
-        self._session: Optional[aiohttp.ClientSession] = None
+        self._session: aiohttp.ClientSession | None = None
 
     async def _get_session(self) -> aiohttp.ClientSession:
         if self._session is None or self._session.closed:
@@ -42,7 +43,7 @@ class BiliApiClient:
             )
         return self._session
 
-    async def _safe_json_from_response(self, response: aiohttp.ClientResponse) -> Optional[dict]:
+    async def _safe_json_from_response(self, response: aiohttp.ClientResponse) -> dict | None:
         """安全解析 JSON"""
         try:
             text = await response.text()
@@ -52,7 +53,7 @@ class BiliApiClient:
             logger.error(f"解析 B站 API JSON 失败: status={response.status}, url='{response.url}', 片段='{preview}', 错误: {e}")
             return None
 
-    async def get_at_mentions(self, cursor_id: Optional[int] = None, cursor_time: Optional[int] = None) -> Optional[dict]:
+    async def get_at_mentions(self, cursor_id: int | None = None, cursor_time: int | None = None) -> dict | None:
         """获取 @ 我 的消息"""
         session = await self._get_session()
         params = {
